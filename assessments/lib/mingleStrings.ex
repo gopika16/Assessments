@@ -1,17 +1,17 @@
 defmodule MingleStrings do
-  def mingleStrings(firstString, secondString) do
-    firstString = String.to_charlist(firstString)
-    secondString = String.to_charlist(secondString)
+  def mingle_strings(first_string, second_string) do
+    first_string = String.to_charlist(first_string)
+    second_string = String.to_charlist(second_string)
 
     ""
-    |> mixStrings(firstString, secondString)
+    |> mix_strings(first_string, second_string)
   end
 
-  defp mixStrings(finalString, [firsthead | firsttail], [secondhead | secondtail]) do
-    (finalString <> <<firsthead>> <> <<secondhead>>) |> mixStrings(firsttail, secondtail)
+  defp mix_strings(final_string, [first_head | first_tail], [second_head | second_tail]) do
+    (final_string <> <<first_head>> <> <<second_head>>) |> mix_strings(first_tail, second_tail)
   end
 
-  defp mixStrings(finalValue, [], []), do: finalValue
-  defp mixStrings(finalValue, firstList, []), do: finalValue <> (firstList |> to_string())
-  defp mixStrings(finalValue, [], secondList), do: finalValue <> (secondList |> to_string())
+  defp mix_strings(final_value, [], []), do: final_value
+  defp mix_strings(final_value, first_list, []), do: final_value <> (first_list |> to_string())
+  defp mix_strings(final_value, [], second_list), do: final_value <> (second_list |> to_string())
 end

@@ -1,14 +1,14 @@
 defmodule SwapChars do
-  def swapChars(originalString) do
-    originalString
+  def swap_chars(original_string) do
+    original_string
     |> to_charlist
-    |> swapChar("")
+    |> swap_character("")
   end
 
-  defp swapChar([head | tail], finalString) do
-    [nextHead | updatedTail] = tail
-    swapChar(updatedTail, finalString <> <<nextHead>> <> <<head>>)
+  defp swap_character([head | tail], final_string) do
+    [next_head | updated_tail] = tail
+    swap_character(updated_tail, final_string <> <<next_head>> <> <<head>>)
   end
 
-  defp swapChar([], finalString), do: finalString
+  defp swap_character([], final_string), do: final_string
 end
