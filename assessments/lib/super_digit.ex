@@ -3,8 +3,7 @@ defmodule SuperDigit do
     if number > 0 && times > 0 do
       number
       |> generate_p(times)
-      |> String.to_charlist()
-      |> calculate_super_digit(0)
+      |> String.to_integer
       |> sum_super_digit
     else
       "Positive Values only"
@@ -16,13 +15,6 @@ defmodule SuperDigit do
   end
 
   defp generate_p(_, 0), do: ""
-
-  defp calculate_super_digit([head | tail], super_digit) do
-    current_digit = String.to_integer(<<head>>)
-    calculate_super_digit(tail, super_digit + current_digit)
-  end
-
-  defp calculate_super_digit([], super_digit), do: super_digit
 
   defp sum_super_digit(digit) do
     digits = Integer.digits(digit)
