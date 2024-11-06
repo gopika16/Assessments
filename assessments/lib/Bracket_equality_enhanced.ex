@@ -8,25 +8,25 @@ defmodule BracketEqualityEnhanced do
 
     if rem(length(input_string), 2) === 0 do
       input_string
-      |> isEqual?([])
+      |> is_equal?([])
     else
       false
     end
   end
 
-  defp isEqual?([], []), do: true
+  defp is_equal?([], []), do: true
 
-  defp isEqual?([head | tail], stack) when head in @open_brackets do
-    isEqual?(tail, [head | stack])
+  defp is_equal?([head | tail], stack) when head in @open_brackets do
+    is_equal?(tail, [head | stack])
   end
 
-  defp isEqual?([head | tail], [top | stack]) when head in @close_brackets do
+  defp is_equal?([head | tail], [top | stack]) when head in @close_brackets do
     if @brackets[top] === head or top in @open_brackets do
-      isEqual?(tail, stack)
+      is_equal?(tail, stack)
     else
-      isEqual?(tail, stack)
+      is_equal?(tail, stack)
     end
   end
 
-  defp isEqual?(_, _), do: false
+  defp is_equal?(_, _), do: false
 end
