@@ -1,5 +1,3 @@
-git config --global user.email "gopika16aug@gmail.com"
-git config --global user.name "Gopika"
 
 npm install -g elm-review	
 npm install -g elm-test elm-format elm-review
